@@ -5,28 +5,24 @@ void printMessage(const char* Message) {
     printf("%s\n", Message);
 }
 
-int isTemperatureOk(float temperature) {
-    if (temperature < 0 || temperature > 45) {
-        printMessage("Temperature out of range!");
+int isValueInRange(float value, float min, float max, const char* Message) {
+    if (value < min || value > max) {
+        printMessage(Message);
         return 0;
     }
     return 1;
+}
+
+int isTemperatureOk(float temperature) {
+    return isValueInRange(temperature, 0, 45, "Temperature out of range!");
 }
 
 int isSocOk(float soc) {
-    if (soc < 20 || soc > 80) {
-        printMessage("State of Charge out of range!");
-        return 0;
-    }
-    return 1;
+    return isValueInRange(soc, 20, 80, "State of Charge out of range!");
 }
 
 int isChargeRateOk(float chargeRate) {
-    if (chargeRate > 0.8) {
-        printMessage("Charge Rate out of range!");
-        return 0;
-    }
-    return 1;
+    return isValueInRange(chargeRate, 0, 0.8, "Charge Rate out of range!");
 }
 
 int batteryIsOk(float temperature, float soc, float chargeRate) {
@@ -34,6 +30,26 @@ int batteryIsOk(float temperature, float soc, float chargeRate) {
 }
 
 int main() {
+    // Valid cases
     assert(batteryIsOk(25, 70, 0.7));
-    assert(!batteryIsOk(50, 85, 0));
+    assert(batteryIsOk(0, 20, 0.8));
+    assert(batteryIsOk(45, 80, 0.0));
+    
+    // Invalid temperature cases
+    assert(!batteryIsOk(-1, 70, 0.7));  // Temperature below lower limit
+    assert(!batteryIsOk(46, 70, 0.7));  // Temperature above upper limit
+    
+    // Invalid SOC cases
+    assert(!batteryIsOk(25, 19, 0.7));  // SOC below lower limit
+    assert(!batteryIsOk(25, 81, 0.7));  // SOC above upper limit
+    
+    // Invalid charge rate cases
+    assert(!batteryIsOk(25, 70, 0.9));  // Charge rate above upper limit
+    
+    // Combination of invalid parameters
+    assert(!batteryIsOk(-1, 19, 0.9));  // All parameters out of range
+    assert(!batteryIsOk(25, 19, 0.9));  // SOC and charge rate out of range
+    assert(!batteryIsOk(-1, 70, 0.9));  // Temperature and charge rate out of range
+    assert(!batteryIsOk(-1, 19, 0.7));  // Temperature and SOC out of range
+    return 0;
 }
