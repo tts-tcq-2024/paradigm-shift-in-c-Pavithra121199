@@ -40,7 +40,7 @@ int batteryIsOk(float temperature, float soc, float chargeRate) {
 int main() {
     // Valid cases
     assert(batteryIsOk(30, 75, 0.6));  // Valid case - random input
-    assert(batteryIsOk(0, 20, 0.8));-  // Valid case checking the lower limit of temperature, soc and chargeRate
+    assert(batteryIsOk(0, 20, 0.8));  // Valid case checking the lower limit of temperature, soc and chargeRate
     assert(batteryIsOk(45, 80, 0.8));  // Valid case checking the upper limit of temperature and soc
     
     // Invalid temperature cases
