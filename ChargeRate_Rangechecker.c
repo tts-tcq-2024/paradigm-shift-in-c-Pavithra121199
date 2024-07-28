@@ -1,5 +1,5 @@
 #include "ChargeRate_Rangechecker.h"
-#include "ChargeRateRange_checker.h"
+#include "ValueRange_checker.h"
 #include "EarlyWarning.h"
 
 int isChargeRateOk(float chargeRate) {
