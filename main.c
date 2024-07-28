@@ -22,7 +22,7 @@ int main() {
     assert(!batteryIsOk(-1, 19, 0.7));  // temperature and soc out of range
     assert(!batteryIsOk(30, 19, 0.9));  // soc and chargeRate out of range
     assert(!batteryIsOk(-1, 75, 0.9));  // temperature and chargeRate out of range
-    assert(!batteryIsOk(-1, 19, 0.9));  // All parameters out of range
+    assert(!batteryIsOk(-1, 19, 0.9));  // All parameter values out of range
 
     return 0;
 }
