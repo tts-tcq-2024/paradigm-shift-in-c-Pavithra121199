@@ -1,6 +1,6 @@
 #include "Battery_Monitor.h"
 #include "Temperature_Rangechecker.h"
-#include "SOC_Rangechecker"
+#include "SOC_Rangechecker.h"
 #include "ChargeRate_Rangechecker.h"
 
 int batteryIsOk(float temperature, float soc, float chargeRate) {
