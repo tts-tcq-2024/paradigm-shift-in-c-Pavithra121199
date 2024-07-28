@@ -18,6 +18,3 @@ void checkEarlyWarning(float value, float min, float max, float tolerance, const
     printHighWarning(value, max, tolerance, highWarning);
 }
 
-void checkEarlyWarningForChargeRate(float value, float max, float tolerance, const char* highWarning) {
-    printHighWarning(value, max, tolerance, highWarning);
-}
