@@ -21,8 +21,8 @@ int main() {
     // Early warnings
     assert(batteryIsOk(2.25, 75, 0.6));  
     assert(batteryIsOk(42.75, 75, 0.6));
-    assert(batteryIsOk(20, 21, 0.6));  
-    assert(batteryIsOk(20, 79, 0.6));  
+    assert(batteryIsOk(20, 24, 0.6));  
+    assert(batteryIsOk(20, 76, 0.6));  
     assert(batteryIsOk(20, 40, 0.76));
     
 
