@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "EarlyWarning.h"
-#include "EarlyWarningMessage_printer.c"
+#include "EarlyWarningMessage_printer.h"
 
 void checkEarlyWarning(float value, float min, float max, float tolerance, const char* lowWarning, const char* highWarning) {
     printLowWarning(value, min, tolerance, lowWarning);
