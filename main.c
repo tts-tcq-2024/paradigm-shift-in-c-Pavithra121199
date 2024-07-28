@@ -1,5 +1,5 @@
 #include <assert.h>
-#include "batteryIsOk.h"
+#include "Battery_Monitor.h"
 
 int main() {
     // Valid cases
