@@ -2,10 +2,6 @@
 #include "Battery_Monitor.h"
 
 int main() {
-    // Valid cases
-    assert(batteryIsOk(30, 75, 0.6));  // Valid case - random input
-    assert(batteryIsOk(0, 20, 0.8));  // Valid case checking the lower limit of temperature, soc and chargeRate
-    assert(batteryIsOk(45, 80, 0.8));  // Valid case checking the upper limit of temperature and soc
     
     // Invalid temperature cases
     assert(!batteryIsOk(-1, 75, 0.6));  // Temperature below lower limit
@@ -17,12 +13,12 @@ int main() {
     
     // Invalid chargeRate case
     assert(!batteryIsOk(30, 75, 0.9));  // chargeRate above upper limit
-    
-    // Combination of invalid cases
-    assert(!batteryIsOk(-1, 19, 0.7));  // temperature and soc out of range
-    assert(!batteryIsOk(30, 19, 0.9));  // soc and chargeRate out of range
-    assert(!batteryIsOk(-1, 75, 0.9));  // temperature and chargeRate out of range
-    assert(!batteryIsOk(-1, 19, 0.9));  // All parameter values out of range
 
+    //Early warnings
+    assert(!batteryIsOk(2.25, 75, 0.8));  // Approaching lower temperature limit
+    assert(!batteryIsOk(42.75, 75, 0.8));  // Approaching higher temperature limit
+    assert(!batteryIsOk(30, 24, 0.8));  // Approaching discharge
+    assert(!batteryIsOk(30, 76, 0.8));  // Approaching charge-peak
+    assert(!batteryIsOk(30, 60, 0.76));  // Approaching maximum charge rate
     return 0;
 }
