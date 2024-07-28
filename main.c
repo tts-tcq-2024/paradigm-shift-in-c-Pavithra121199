@@ -19,11 +19,11 @@ int main() {
     assert(!batteryIsOk(30, 75, 0.9));  // chargeRate above upper limit
     
     // Early warnings
-    assert(batteryIsOk(2, 75, 0.6));  
-    assert(batteryIsOk(44, 75, 0.6));
+    assert(batteryIsOk(2.25, 75, 0.6));  
+    assert(batteryIsOk(42.75, 75, 0.6));
     assert(batteryIsOk(20, 21, 0.6));  
     assert(batteryIsOk(20, 79, 0.6));  
-    assert(batteryIsOk(20, 40, 0.75));
+    assert(batteryIsOk(20, 40, 0.76));
     
 
     return 0;
