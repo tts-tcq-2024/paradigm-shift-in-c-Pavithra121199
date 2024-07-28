@@ -8,9 +8,7 @@ void checkEarlyWarning(float value, float min, float max, float tolerance, const
 }
 
 void checkEarlyWarningForChargeRate(float value, float max, float tolerance, const char* highWarning) {
-    if (value > max - tolerance && value <= max) {
-        printf("%s\n", highWarning);
-    }
+   printHighWarning(value, max, tolerance, highWarning);
 }
 
 
