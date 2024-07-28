@@ -1,8 +1,8 @@
 #include "ChargeRate_RangeChecker.h"
 #include "ChargeRateRange_checker.h"
-#include "EarlyWarnings.h"
+#include "EarlyWarning.h"
 
 int isChargeRateOk(float chargeRate) {
-    checkWarningChargeRate(chargeRate, 0.8, 0.04, "Warning: Approaching maximum charge rate");
+    checkEarlyWarningForChargeRate(chargeRate, 0.8, 0.04, "Warning: Approaching maximum charge rate");
     return isChargeRateInRange(chargeRate, 0.8, "Charge Rate out of range!");
 }
