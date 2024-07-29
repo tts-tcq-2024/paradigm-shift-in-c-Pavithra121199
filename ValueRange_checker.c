@@ -16,3 +16,4 @@ int isChargeRateInRange(float value, float max, const char* WarningMessage) {
     }
     return 1;
 }
+
