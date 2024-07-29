@@ -1,8 +1,6 @@
 #include <assert.h>
 #include "Battery_Monitor.h"
 
-int main() {
-    
 void testTemperatureBelowLowerLimit() {
     assert(!batteryIsOk(-1, 75, 0.6));
 }
@@ -42,5 +40,17 @@ void testApproachingChargePeak() {
 void testApproachingMaxChargeRate() {
     assert(batteryIsOk(20, 40, 0.76));
 }
-    return 0;
+
+int main() {
+    testTemperatureBelowLowerLimit();
+    testTemperatureAboveUpperLimit();
+    testSocBelowLowerLimit();
+    testSocAboveUpperLimit();
+    testChargeRateAboveUpperLimit();
+    testApproachingLowerTemperatureLimit();
+    testApproachingHigherTemperatureLimit();
+    testApproachingDischarge();
+    testApproachingChargePeak();
+    testApproachingMaxChargeRate();
+return 0;
 }
