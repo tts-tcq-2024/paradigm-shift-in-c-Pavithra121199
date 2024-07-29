@@ -5,3 +5,4 @@ void checkEarlyWarning(float value, float min, float max, float tolerance, const
 void checkEarlyWarningForChargeRate(float value, float max, float tolerance, const char* highWarning);
 
 #endif 
+
