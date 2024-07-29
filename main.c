@@ -14,3 +14,4 @@ int main() {
     testApproachingMaxChargeRate();
 return 0;
 }
+
